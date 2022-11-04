@@ -1,4 +1,4 @@
-<div class="row px-5 mx-5">
+<div class="row px-5 mx-5 my-3">
   <h1 class="title">El aroma mágico</h1>
   <hr />
   <img src="./assets/img/banner.jpeg" />
@@ -15,12 +15,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let cafe of cafes">
-          <th scope="row">1</th>
+          <th scope="row">{{ cafe.id }}</th>
           <td>{{ cafe.nombre }}</td>
           <td>{{ cafe.tipo }}</td>
           <td>{{ cafe.region }}</td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="pt-5 mt-5 text-center">
+    Contact us: +57 3102105253 - info@elaromamagico.com - @elaromamagico
   </div>
 </div>
