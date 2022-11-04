@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { elementAt } from 'rxjs';
 import { Cafe } from '../cafe';
 import { CafeService } from '../cafe.service';
 
@@ -9,6 +10,8 @@ import { CafeService } from '../cafe.service';
 })
 export class CafeListComponent implements OnInit {
   cafes: Array<Cafe> = [];
+  cafeOrigen: number = 0;
+  cafeBlend: number = 0;
 
   constructor(private cafeService: CafeService) {}
 
@@ -20,6 +23,17 @@ export class CafeListComponent implements OnInit {
     this.cafeService.getCafes().subscribe((cafes) => {
       console.log(cafes);
       this.cafes = cafes;
+      this.getType();
+    });
+  }
+
+  getType(): void {
+    this.cafes.forEach((cafe) => {
+      if (cafe.tipo === 'Café de Origen') {
+        this.cafeOrigen++;
+      } else if (cafe.tipo === 'Blend') {
+        this.cafeBlend++;
+      }
     });
   }
 }
